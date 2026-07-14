@@ -1,14 +1,14 @@
 
 let no = 4;
 let isPrime = true;
-if(no <= 1)
+if (no <= 1)
 {
     isPrime = false;
 }
 for (let i = 2; i < no; i++) 
-    {
+{
     if (no % i == 0) 
-        {
+    {
         console.log("Not Prime");
         isPrime = false;
         break;
@@ -16,6 +16,6 @@ for (let i = 2; i < no; i++)
 }
 
 if (isPrime) 
-    {
+{
     console.log("Prime No");
 }
