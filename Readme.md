@@ -1,1 +1,2 @@
-This is an Internship Task
+This is an Internship Task 
+Every Day task should be completed
