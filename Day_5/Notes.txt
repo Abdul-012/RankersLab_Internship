@@ -1,0 +1,196 @@
+ 1. What is Express.js?
+
+=>Express.js is a fast, lightweight web framework for Node.js that makes it easier to build web applications and APIs.
+
+=>What can you build with Express.js?
+REST APIs
+Web applications
+Authentication systems (login/signup)
+Backend services for mobile apps
+Real-time applications (with libraries like Socket.IO)
+
+Simple Example
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
+
+app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
+});
+
+
+2.Installing Expressjs
+
+Step 1: Create a project folder
+mkdir my-express-app
+cd my-express-app
+
+Step 2: Initialize a Node.js project
+npm init -y
+
+This creates a package.json file.
+
+Step 3: Install Express
+npm install express
+
+Step 4: Verify the installation
+Run:
+npm list express
+
+
+3. creating a express server
+
+const express = require("express");
+
+const app = express();
+
+// Home route
+app.get("/", (req, res) => {
+    res.send("Welcome to Express.js!");
+});
+
+// Start the server
+const PORT = 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+
+4. Routing in Express.js
+
+Routing is the process of defining how your server responds to requests made to different URLs (routes) 
+and HTTP methods (GET, POST, PUT, DELETE, etc.).
+
+HTTP Methods
+1. GET
+Retrieve data.
+
+app.get("/users", (req, res) => {
+    res.send("Fetching users");
+});
+2. POST
+Create new data.
+
+app.post("/users", (req, res) => {
+    res.send("User created");
+});
+3. PUT
+Update existing data.
+
+app.put("/users", (req, res) => {
+    res.send("User updated");
+});
+4. DELETE
+Delete data.
+
+app.delete("/users", (req, res) => {
+    res.send("User deleted");
+});
+
+
+5. Route Parameters in Express.js
+
+Route parameters are dynamic values in the URL. They allow you to capture data directly from the URL using a colon (:).
+
+Syntax
+app.get("/route/:parameter", (req, res) => 
+{
+    // Access parameter using req.params
+});
+Example 
+const express = require("express");
+const app = express();
+
+app.get("/user/:id", (req, res) => {
+    res.send(`User ID: ${req.params.id}`);
+});
+
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
+});
+
+
+6.Query Parameters in Express.js
+
+Query parameters are key-value pairs added to the URL after a ?. They are used to send extra information to the server.
+
+Example URL
+/search?name=Abdul&age=22
+
+Here:
+
+search is the route
+name=Abdul and age=22 are query parameters
+How to access them in Express
+
+const express = require("express");
+const app = express();
+
+app.get("/search", (req, res) => {
+    res.send(req.query);
+});
+
+
+7. Middleware in Express.js
+
+Middleware is a function that executes between receiving a request and sending a response. It can:
+
+Execute code
+Read or modify the request (req)
+Read or modify the response (res)
+End the request-response cycle
+Pass control to the next middleware using next()
+
+Example
+app.use((req, res, next) => {
+    console.log("Middleware executed");
+    next();
+});
+
+8. Sending JSON Responses in Express.js
+
+A JSON response is used to send data from the server to the client in JSON (JavaScript Object Notation) format.
+
+Express provides the res.json() method to send JSON responses.
+
+Syntax
+res.json(data);
+res → Response object
+json() → Converts the JavaScript object into JSON and sends it to the clientPostman Basics
+
+app.get("/student", (req, res) => {
+    res.json({
+        id: 101,
+        name: "Abdul",
+        age: 22,
+        course: "B.Tech"
+    });
+});
+
+9. Postman Basics
+
+Postman is an API testing tool used to send HTTP requests (GET, POST, PUT, DELETE, etc.)
+ to a server and view the responses without writing frontend code.
+
+Why Use Postman?
+Test REST APIs
+Send different HTTP requests
+View server responses
+Debug APIs
+Send JSON data
+Test authentication and headers
+
+
+Response Status Codes
+Status Code	Meaning
+200 OK	Request successful
+201 Created	Resource created successfully
+400 Bad Request	Invalid request from the client
+401 Unauthorized	Authentication required
+403 Forbidden	Access denied
+404 Not Found	Resource not found
+500 Internal Server Error	Server-side error

@@ -1,0 +1,4 @@
+ Hello EveryOne 
+ Welcome to Nodejs
+ This is a sample text file
+data is appended successfully.
